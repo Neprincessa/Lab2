@@ -20,6 +20,7 @@ private:
 	string Surname;
 	string SecondName;
 	int scores;
+	int debts;
 public:
 	Student();
 	void PrintStudent();
@@ -46,6 +47,7 @@ class Lecturer
 	int experiense;
 public:
 	Lecturer();
+	void BuildLecturer();
 	void PrintLecturer();
 	string GetLecturerName();
 	string GetLecturerSurname();

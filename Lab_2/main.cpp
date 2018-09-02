@@ -11,10 +11,15 @@ int main() {
 	int currentMode; //select the type of work
 	currentMode = selectMode();
 
-	Student a;
+	/*Student a;
 	cout << "fdfd" << endl;
 	a.BuildStudent();
-	a.PrintStudent();
+	a.PrintStudent();*/
+
+	Lecturer b;
+	b.BuildLecturer();
+	b.PrintLecturer();
+
 	system("pause");
 	return 0;
 }
