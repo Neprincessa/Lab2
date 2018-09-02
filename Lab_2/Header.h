@@ -20,7 +20,6 @@ private:
 	string Surname;
 	string SecondName;
 	int scores;
-	int debts;
 public:
 	Student();
 	void PrintStudent();
@@ -38,26 +37,26 @@ public:
 };
 
 //==================================*Lecturer*=============================//
-//class Lecturer
-//{
-//	string Name;
-//	string Surname;
-//	string SecondName;
-//	int AmountOfPublications;
-//	int experiense;
-//public:
-//	Lecturer();
-//	void PrintLecturer();
-//	string GetLecturerName();
-//	string GetLecturerSurname();
-//	string GetLecturerSecondName();
-//	string GetLecturerDegree();
-//	string GetLecturerAmountOfPublications();
-//	string GetLecturerExperience();
-//	int GetCurrentExperience();
-//	int GetCurrentPublications();
-//	bool IfInt_Lecturer(char *);
-//};
+class Lecturer
+{
+	string Name;
+	string Surname;
+	string SecondName;
+	int AmountOfPublications;
+	int experiense;
+public:
+	Lecturer();
+	void PrintLecturer();
+	string GetLecturerName();
+	string GetLecturerSurname();
+	string GetLecturerSecondName();
+	string GetLecturerDegree();
+	string GetLecturerAmountOfPublications();
+	string GetLecturerExperience();
+	int GetCurrentExperience();
+	int GetCurrentPublications();
+	bool IfInt_Lecturer(char *);
+};
 
 
 //-------------------------------------------*Other*----------------------------------------------------------//

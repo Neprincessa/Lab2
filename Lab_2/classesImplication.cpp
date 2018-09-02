@@ -12,23 +12,23 @@ Student::Student()
 	this->Name = Name;
 	this->SecondName = SecondName;
 	this->Surname = Surname;
-	this->debts = debts;
+	this->scores = scores;
 }
 
 void Student::BuildStudent()
 {
 	char s[256];
 	char *p = s;
-	cout << "¬ведите фамилию" << endl;
+	cout << "Fill in the surname" << endl;
 	cin >> s;
 	this->Surname = s;
-	cout << "¬ведите им€" << endl;
+	cout << "Fill in the name" << endl;
 	cin >> s;
 	this->Name = s;
-	cout << "¬ведите отчество" << endl;
+	cout << "Fill in the second name" << endl;
 	cin >> s;
 	this->SecondName = s;
-	cout << "¬ведите средний балл студента" << endl;
+	cout << "Fill in the average scores of student" << endl;
 	cin >> s;
 
 	while (!checkDataType(p))
@@ -50,16 +50,16 @@ void Student::PrintStudent()
 	char s[256];
 	char *p = s;
 
-	cout << "‘амили€:" << " ";
+	cout << "Surname:" << " ";
 	cout << this->Surname << endl;
 
-	cout << "»м€:" << " ";
+	cout << "Name:" << " ";
 	cout << this->Name << endl;
 
-	cout << "ќтчество:" << " ";
+	cout << "Second:" << " ";
 	cout << this->SecondName << endl;
 
-	cout << "—редний балл" << " ";
+	cout << "Average scores" << " ";
 	cout << this->scores << endl;
 
 }
@@ -70,9 +70,9 @@ void Student::PrintStudent()
 //start -> seelct the type of work
 int selectMode()
 {
-	cout << "¬ведите 1, если хотите работать в тестовом режиме" << endl;
-	cout << "¬ведите 2, если хотите работать со студентами" << endl;
-	cout << "¬ведите 3, если хотите работать с преподавател€ми" << endl;
+	cout << "Fill in 1, if you want to work in test mode" << endl;
+	cout << "Fill in 2, if you want to work with students" << endl;
+	cout << "Fill in 3, if you want to work with lecturers" << endl;
 
 
 	char strMode[256];
@@ -100,7 +100,6 @@ bool checkDataType(char *ptr)
 			break;
 		}
 	if (!isd)
-		cout << "¬ведите целое положительное число, а не строку или дробное число" << endl;
-
+		cout << "Fill in the positive integer, not a string or a double number" << endl;
 	return isd;
 }
