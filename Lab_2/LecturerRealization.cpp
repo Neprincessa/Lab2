@@ -4,8 +4,7 @@
 using namespace std;
 
 //------------------------------------------------------------*Lecturer*---------------------------------------//
-Lecturer::Lecturer()
-{
+Lecturer::Lecturer() {
 	this->Name = Name;
 	this->SecondName = SecondName;
 	this->Surname = Surname;
@@ -13,8 +12,7 @@ Lecturer::Lecturer()
 	this->AmountOfPublications = AmountOfPublications;
 }
 
-void Lecturer::BuildLecturer()
-{
+void Lecturer::BuildLecturer() {
 	char s[256];
 	char *p = s;
 
@@ -66,8 +64,7 @@ void Lecturer::BuildLecturer()
 }
 
 
-void Lecturer::PrintLecturer()
-{
+void Lecturer::PrintLecturer() {
 	cout << "Surname:" << " ";
 	cout << this->Surname << endl;
 	cout << "Name:" << " ";
@@ -80,27 +77,22 @@ void Lecturer::PrintLecturer()
 	cout << this->AmountOfPublications << endl;
 }
 
-string Lecturer::GetLecturerSurname()
-{
+string Lecturer::GetLecturerSurname() {
 	return Surname;
 }
 
-string Lecturer::GetLecturerName()
-{
+string Lecturer::GetLecturerName() {
 	return Name;
 }
 
-string Lecturer::GetLecturerSecondName()
-{
+string Lecturer::GetLecturerSecondName() {
 	return SecondName;
 }
 
-int Lecturer::GetCurrentExperience()
-{
+int Lecturer::GetCurrentExperience() {
 	return experiense;
 }
 
-int Lecturer::GetCurrentPublications()
-{
+int Lecturer::GetCurrentPublications() {
 	return AmountOfPublications;
 }

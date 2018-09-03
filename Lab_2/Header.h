@@ -4,11 +4,11 @@
 #include <string>
 using namespace std;
 
-//struct Node
-//{
-//	void *data;
-//	Node *Next, *Prev;
-//};
+struct Node
+{
+	void *data;
+	Node *Next, *Prev;
+};
 
 //----------------------------------------------------*Data*-----------------------------------------------------//
 

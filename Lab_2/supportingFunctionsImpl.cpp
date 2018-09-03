@@ -8,8 +8,7 @@ using namespace std;
 //-------------------------*other*-----------------------------//
 
 //start -> seelct the type of work
-int selectMode()
-{
+int selectMode() {
 	cout << "Fill in 1, if you want to work in test mode" << endl;
 	cout << "Fill in 2, if you want to work with students" << endl;
 	cout << "Fill in 3, if you want to work with lecturers" << endl;
@@ -30,8 +29,7 @@ int selectMode()
 }
 
 //check the correctness of data type 
-bool checkDataType(char *ptr)
-{
+bool checkDataType(char *ptr) {
 	bool isd = true;
 	while (*ptr)
 		if (!isdigit(*ptr++))

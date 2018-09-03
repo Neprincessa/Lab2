@@ -5,8 +5,7 @@ using namespace std;
 
 //-------------------------------Student---------------------------------------//
 
-Student::Student()
-{
+Student::Student() {
 	this->Name = Name;
 	this->SecondName = SecondName;
 	this->Surname = Surname;
@@ -14,8 +13,7 @@ Student::Student()
 	this->debts = debts;
 }
 
-void Student::BuildStudent()
-{
+void Student::BuildStudent() {
 	char s[256];
 	char *p = s;
 	cout << "Fill in the surname" << endl;
@@ -64,8 +62,7 @@ void Student::BuildStudent()
 	cout << "\n";
 }
 
-void Student::PrintStudent()
-{
+void Student::PrintStudent() {
 	char s[256];
 	char *p = s;
 
@@ -86,27 +83,22 @@ void Student::PrintStudent()
 
 }
 
-int Student::GetCurrentDebts()
-{
+int Student::GetCurrentDebts() {
 	return debts;
 }
 
-int Student::GetCurrentScores()
-{
+int Student::GetCurrentScores() {
 	return scores;
 }
 
-string Student::GetStudentName()
-{
+string Student::GetStudentName() {
 	return Name;
 }
 
-string Student::GetStudenSecondName()
-{
+string Student::GetStudenSecondName() {
 	return SecondName;
 }
 
-string Student::GetStudentSurname()
-{
+string Student::GetStudentSurname() {
 	return Surname;
 }
