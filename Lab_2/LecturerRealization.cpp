@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-//fddf
+
 //------------------------------------------------------------*Lecturer*---------------------------------------//
 Lecturer::Lecturer() {
 	this->Name = Name;

@@ -68,4 +68,3 @@ int selectMode();
 bool checkDataType(char*);
 int setAmount();
 #endif // !_LAB__1__
-//fddf

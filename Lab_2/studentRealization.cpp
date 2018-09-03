@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-//fddf
+
 //-------------------------------Student---------------------------------------//
 
 Student::Student() {

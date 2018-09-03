@@ -1,6 +1,6 @@
 #ifndef  _TEMPL__T__
 #define _TEMPL__T__
-//fddf
+
 #include <string>
 #include <iostream>
 #include "Header.h"
@@ -14,7 +14,7 @@ struct Node
 };
 
 //------------------------------------------------------------------------------------------------//
-template <typename T>
+template <class T>
 class List
 {
 	int typeMode;
@@ -26,8 +26,6 @@ public:
 	List() {
 		head = nullptr;
 		tail = nullptr;
-		head->Next = nullptr;
-		head->Prev = nullptr;
 		typeMode = -2;
 	};
 	~List();

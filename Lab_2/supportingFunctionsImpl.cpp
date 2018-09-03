@@ -1,7 +1,7 @@
 #include "Header.h"
 #include <iostream>
 #include <string>
-//fddf
+
 using namespace std;
 
 //-------------------------*other*-----------------------------//

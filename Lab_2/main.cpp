@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-//fddf
+
 
 int main() {
 
@@ -12,14 +12,18 @@ int main() {
 	int currentMode; //select the type of work
 	currentMode = selectMode();
 
-	/*Student a;
-	cout << "fdfd" << endl;
-	a.BuildStudent();
-	a.PrintStudent();*/
-
-	Lecturer b;
-	b.BuildLecturer();
-	b.PrintLecturer();
+	if (currentMode != 1) {
+		if (currentMode == 2) {
+			List<Student> people;
+			people.SetList();
+			people.Show();
+		}
+		if (currentMode == 3) {
+			List<Lecturer> people;
+			people.SetList();
+			people.Show();
+		}
+	}
 
 	system("pause");
 	return 0;
