@@ -10,6 +10,7 @@ void List<Student>::SetList() {
 
 	int currentAmount;
 	currentAmount = setAmount();
+	amount = currentAmount;
 
 	int i = 0;
 	while (i < currentAmount) {
@@ -18,6 +19,7 @@ void List<Student>::SetList() {
 		a.BuildStudent();
 		AddNode(a);
 		i++;
+		cout << "\n";
 	}
 }
 
@@ -26,6 +28,7 @@ void List<Lecturer>::SetList() {
 
 	int currentAmount;
 	currentAmount = setAmount();
+	amount = currentAmount;
 
 	int i = 0;
 	while (i < currentAmount) {
@@ -34,6 +37,7 @@ void List<Lecturer>::SetList() {
 		a.BuildLecturer();
 		AddNode(a);
 		i++;
+		cout << "\n";
 	}
 }
 
@@ -43,13 +47,13 @@ void List<T>::AddNode(T x) {
 	temp->Next = NULL;                  
 	temp->data = x;                       
 
-	if (head != NULL)   //Åñëè ñïèñîê íå ïóñò
+	if (head != NULL)   //if list is not empty
 	{
 		temp->Prev = tail;              
 		tail->Next = temp;             
 		tail = temp;                   
 	}
-	else //Åñëè ñïèñîê ïóñòîé
+	else  //if list is empty
 	{
 		temp->Prev = NULL;              
 		head = tail = temp;             
@@ -58,7 +62,7 @@ void List<T>::AddNode(T x) {
 
 
 void List<Student>::Show() {
-	//ÂÛÂÎÄÈÌ ÑÏÈÑÎÊ Ñ ÊÎÍÖÀ
+	//Show from thw tail
 	cout << "The list from the end:" << endl;
 	Node<Student> *temp = tail;  
 	int i = 0;
@@ -72,7 +76,7 @@ void List<Student>::Show() {
 	}
 	cout << "\n";
 
-	//ÂÛÂÎÄÈÌ ÑÏÈÑÎÊ Ñ ÍÀ×ÀËÀ
+	//Show from the begining
 	cout << "The list from the begining:" << endl;
 	temp = head;   
 	i = 0;
@@ -87,7 +91,7 @@ void List<Student>::Show() {
 }
 
 void List<Lecturer>::Show() {
-	//ÂÛÂÎÄÈÌ ÑÏÈÑÎÊ Ñ ÊÎÍÖÀ
+	//Show from thw tail
 	cout << "The list from the end:" << endl;
 	Node<Lecturer> *temp = tail;
 	int i = 0;
@@ -101,7 +105,7 @@ void List<Lecturer>::Show() {
 	}
 	cout << "\n";
 
-	//ÂÛÂÎÄÈÌ ÑÏÈÑÎÊ Ñ ÍÀ×ÀËÀ
+	//Show from the begining
 	cout << "The list from the begining:" << endl;
 	temp = head;
 	i = 0;
@@ -123,4 +127,94 @@ List<T>::~List() {
 		delete head;                   
 		head = tail;                   
 	}
+}
+
+template <class T>
+int List<T>::GetAmount() {
+	return amount;
+}
+
+void List<Student>::SelectCurrentOrder(int index) {
+	int i = 0;
+
+	Node<Student> *temp = head;
+	Node<Student> currentPerson;
+
+	while (( temp != nullptr) && ((i+1) != index)) {
+		if (i == index)
+			currentPerson.data = temp->data;
+		i++;
+		temp = temp->Next;
+	}
+
+	int field = chooseFieldForStudent();
+	
+	switch (field)
+	{
+	case 1: {
+		temp->data.PrintSurname();
+		break;
+	}
+	case 2: {
+		temp->data.PrintName();
+		break;
+	}
+	case 3: {
+		temp->data.PrintSecondName();
+		break;
+	}
+	case 4: {
+		temp->data.PrintScores();
+		break;
+	}
+	case 5: {
+		temp->data.PrintDebts();
+		break;
+	}
+	default:
+		break;
+	}
+	cout << "\n";
+}
+
+void List<Lecturer>::SelectCurrentOrder(int index) {
+	int i = 0;
+
+	Node<Lecturer> *temp = head;
+	Node<Lecturer> currentPerson;
+	while ((temp != nullptr) && ((i + 1) != index)) {
+		if (i == index)
+			currentPerson.data = temp->data;
+		i++;
+		temp = temp->Next;
+	}
+
+	int field = chooseFieldForLecturer();
+
+	switch (field)
+	{
+	case 1: {
+		temp->data.PrintSurname();
+		break;
+	}
+	case 2: {
+		temp->data.PrintName();
+		break;
+	}
+	case 3: {
+		temp->data.PrintSecondName();
+		break;
+	}
+	case 4: {
+		temp->data.PrintPublications();
+		break;
+	}
+	case 5: {
+		temp->data.PrintExperience();
+		break;
+	}
+	default:
+		break;
+	}
+	cout << "\n";
 }

@@ -41,7 +41,6 @@ void Student::BuildStudent() {
 			cin >> s;
 		this->scores = atoi(s);
 	}
-	cout << "\n";
 
 	cout << "Fill in the amount of debts" << endl;
 	cin >> s;
@@ -50,7 +49,7 @@ void Student::BuildStudent() {
 	this->debts = atoi(s);
 
 	while (debts < 0) {
-		cout << "Fill in the mositive integer" << endl;
+		cout << "Fill in the positive integer" << endl;
 		cin >> s;
 		while (!checkDataType(p))
 			cin >> s;
@@ -99,4 +98,24 @@ string Student::GetStudenSecondName() {
 
 string Student::GetStudentSurname() {
 	return Surname;
+}
+
+void Student::PrintSurname() {
+	cout << Surname << endl;
+}
+
+void Student::PrintName() {
+	cout << Name << endl;
+}
+
+void Student::PrintSecondName() {
+	cout << SecondName << endl;
+}
+
+void Student::PrintScores() {
+	cout << scores << endl;
+}
+
+void Student::PrintDebts() {
+	cout << debts << endl;
 }

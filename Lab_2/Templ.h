@@ -32,7 +32,7 @@ public:
 	void SetList(); //ввод данных
 	void AddNode(T);
 	void Show();//печать списка
-	string SelectCurrentOrder(int index); //выделение подстроки
+	void SelectCurrentOrder(int index); //выделение подстроки
 	int GetAmount();//получение количества элементов в списке
 	int GetMode();//получение режима
 	void InsertSort();//сортировка вставками

@@ -43,8 +43,6 @@ void Lecturer::BuildLecturer() {
 	this->experiense = atoi(s);
 	}
 
-	cout << "\n";
-
 	cout << "Fill in the amount of publications" << endl;
 	cin >> s;
 	while (!checkDataType(p))
@@ -94,4 +92,24 @@ int Lecturer::GetCurrentExperience() {
 
 int Lecturer::GetCurrentPublications() {
 	return AmountOfPublications;
+}
+
+void Lecturer::PrintSurname() {
+	cout << Surname << endl;
+}
+
+void Lecturer::PrintName() {
+	cout << Name << endl;
+}
+
+void Lecturer::PrintSecondName() {
+	cout << SecondName << endl;
+}
+
+void Lecturer::PrintExperience() {
+	cout << experiense << endl;
+}
+
+void Lecturer::PrintPublications() {
+	cout << AmountOfPublications << endl;
 }

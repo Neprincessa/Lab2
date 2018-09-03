@@ -24,8 +24,11 @@ public:
 	string GetStudentName();
 	string GetStudentSurname();
 	string GetStudenSecondName();
-	/*int GetStudentYear();
-	int GetStudentGroup();*/
+	void PrintName();
+	void PrintSurname();
+	void PrintSecondName();
+	void PrintScores();
+	void PrintDebts();
 	int GetCurrentScores();
 	int GetCurrentDebts();
 	bool IfInt_Student(char *ptr);
@@ -46,6 +49,11 @@ public:
 	string GetLecturerName();
 	string GetLecturerSurname();
 	string GetLecturerSecondName();
+	void PrintName();
+	void PrintSecondName();
+	void PrintSurname();
+	void PrintExperience();
+	void PrintPublications();
 	int GetCurrentExperience();
 	int GetCurrentPublications();
 	bool IfInt_Lecturer(char *);
@@ -57,7 +65,10 @@ void IncreaseDebts();
 void AddAmountOfPublications();
 void ChangeName();
 void ChangeSurname();
-
+int chooseFunction(int);
+int chooseFieldForStudent();
+int chooseFieldForLecturer();
+int chooseField_WithChecks();
 //void(*functions[])(void) =
 //{
 //	IncreaseDebts, AddAmountOfPublications, ChangeName, ChangeSurname
