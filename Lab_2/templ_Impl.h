@@ -2,6 +2,7 @@
 #include <string>
 #include <cmath>
 
+//fddf
 using namespace std;
 
 void List<Student>::SetList() {
