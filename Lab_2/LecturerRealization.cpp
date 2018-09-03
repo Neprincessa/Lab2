@@ -34,16 +34,15 @@ void Lecturer::BuildLecturer() {
 		cin >> s;
 	this->experiense = atoi(s);
 
-	if (experiense < 0) {
-		while (experiense < 0)
-		{
-			cout << "Fill in the positive integer" << endl;
+
+	while (experiense < 0) {
+		cout << "Fill in the positive integer" << endl;
+		cin >> s;
+		while (!checkDataType(p))
 			cin >> s;
-			while (!checkDataType(p))
-				cin >> s;
-		}
-		this->experiense = atoi(s);
+	this->experiense = atoi(s);
 	}
+
 	cout << "\n";
 
 	cout << "Fill in the amount of publications" << endl;
@@ -52,15 +51,15 @@ void Lecturer::BuildLecturer() {
 		cin >> s;
 	this->AmountOfPublications = atoi(s);
 
-	if (AmountOfPublications < 0) {
-		while (AmountOfPublications < 0) {
-			cout << "Fill in the positive integer" << endl;
+
+	while (AmountOfPublications < 0) {
+		cout << "Fill in the positive integer" << endl;
+		cin >> s;
+		while (!checkDataType(p))
 			cin >> s;
-			while (!checkDataType(p))
-				cin >> s;
-		}
-		this->AmountOfPublications = atoi(s);
+	this->AmountOfPublications = atoi(s);
 	}
+
 }
 
 

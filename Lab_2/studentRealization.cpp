@@ -49,16 +49,14 @@ void Student::BuildStudent() {
 		cin >> s;
 	this->debts = atoi(s);
 
-	if (debts < 0) {
-		while (debts < 0) {
-			cout << "Fill in the mositive integer" << endl;
+	while (debts < 0) {
+		cout << "Fill in the mositive integer" << endl;
+		cin >> s;
+		while (!checkDataType(p))
 			cin >> s;
-			while (!checkDataType(p))
-				cin >> s;
-			this->debts = atoi(s);
-		}
-		this->debts = debts;
+		this->debts = atoi(s);
 	}
+
 	cout << "\n";
 }
 

@@ -1,5 +1,4 @@
 #include "Header.h"
-#include "impl_other.cpp"
 #include <iostream>
 #include <string>
 
@@ -40,4 +39,29 @@ bool checkDataType(char *ptr) {
 	if (!isd)
 		cout << "Fill in the positive integer, not a string or a double number" << endl;
 	return isd;
+}
+
+int setAmount()
+{
+	int currentAmount;
+
+	char amount[256];
+	char *p = amount;
+
+	cout << "Fill in the amount of elements" << endl;
+	cin >> amount;
+
+	while (!checkDataType(p))
+		cin >> amount;
+	currentAmount = atoi(amount);
+
+	while (currentAmount < 0) {
+		cout << "Fill in the positove intetger" << endl;
+		cin >> amount;
+		while (!checkDataType(p))
+			cin >> amount;
+		currentAmount = atoi(amount);
+	}
+	
+	return currentAmount;
 }

@@ -4,11 +4,7 @@
 #include <string>
 using namespace std;
 
-struct Node
-{
-	void *data;
-	Node *Next, *Prev;
-};
+
 
 //----------------------------------------------------*Data*-----------------------------------------------------//
 
@@ -70,4 +66,5 @@ void ChangeSurname();
 
 int selectMode();
 bool checkDataType(char*);
+int setAmount();
 #endif // !_LAB__1__
