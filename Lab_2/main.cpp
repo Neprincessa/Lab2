@@ -39,6 +39,9 @@ int main() {
 			}
 
 			people.SelectCurrentOrder(number);
+
+			//insert sort
+			people.InsertSort();
 			people.Show();
 		}
 

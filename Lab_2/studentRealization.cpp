@@ -124,3 +124,7 @@ int Student::PrintDebts() {
 	cout << debts << endl;
 	return debts;
 }
+
+Student Student::GetStudent(Student a) {
+	return a;
+}

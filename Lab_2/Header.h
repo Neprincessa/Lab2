@@ -27,6 +27,7 @@ public:
 	string PrintName();
 	string PrintSurname();
 	string PrintSecondName();
+	Student GetStudent(Student);
 	int PrintScores();
 	int PrintDebts();
 	int GetCurrentScores();

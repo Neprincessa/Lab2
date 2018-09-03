@@ -218,3 +218,31 @@ void List<Lecturer>::SelectCurrentOrder(int index) {
 	}
 	cout << "\n";
 }
+
+//scores
+void List<Student>::InsertSort()
+{
+	Node<Student> *t;
+	int x;
+	Node <Student> curStudent;
+	t = head->Next;
+	while (t)
+	{
+		x = /**(int *)*/t->data.GetCurrentScores();
+		curStudent.data = t->data;
+		Node<Student> *b = t->Prev;
+		while (b != NULL && x < /**(int *)*/b->data.GetCurrentScores())
+		{
+			/**(int *)*/b->Next->data = /**(int *)*/b->data;
+			b = b->Prev;
+		}
+		if (b == NULL)
+			head->data = curStudent.data;
+		///**(int *)*/head->data.GetCurrentScores() = x;
+		else
+			b->Next->data = curStudent.data;
+			///**(int *)*/b->Next->data.GetCurrentScores() = x;
+		t = t->Next;
+	}
+
+}
