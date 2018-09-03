@@ -100,22 +100,27 @@ string Student::GetStudentSurname() {
 	return Surname;
 }
 
-void Student::PrintSurname() {
+string Student::PrintSurname() {
 	cout << Surname << endl;
+	return Surname;
 }
 
-void Student::PrintName() {
+string Student::PrintName() {
 	cout << Name << endl;
+	return Name;
 }
 
-void Student::PrintSecondName() {
+string Student::PrintSecondName() {
 	cout << SecondName << endl;
+	return SecondName;
 }
 
-void Student::PrintScores() {
+int Student::PrintScores() {
 	cout << scores << endl;
+	return scores;
 }
 
-void Student::PrintDebts() {
+int Student::PrintDebts() {
 	cout << debts << endl;
+	return debts;
 }

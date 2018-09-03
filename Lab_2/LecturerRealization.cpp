@@ -94,22 +94,27 @@ int Lecturer::GetCurrentPublications() {
 	return AmountOfPublications;
 }
 
-void Lecturer::PrintSurname() {
+string Lecturer::PrintSurname() {
 	cout << Surname << endl;
+	return Surname;
 }
 
-void Lecturer::PrintName() {
+string Lecturer::PrintName() {
 	cout << Name << endl;
+	return Name;
 }
 
-void Lecturer::PrintSecondName() {
+string Lecturer::PrintSecondName() {
 	cout << SecondName << endl;
+	return SecondName;
 }
 
-void Lecturer::PrintExperience() {
+int Lecturer::PrintExperience() {
 	cout << experiense << endl;
+	return experiense;
 }
 
-void Lecturer::PrintPublications() {
+int Lecturer::PrintPublications() {
 	cout << AmountOfPublications << endl;
+	return AmountOfPublications;
 }
