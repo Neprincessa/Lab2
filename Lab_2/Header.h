@@ -28,10 +28,8 @@ public:
 	string GetStudentName();
 	string GetStudentSurname();
 	string GetStudenSecondName();
-	string GetStudentYear();
-	string GetStudentGroup();
-	string GetStudentScores();
-	string GetStudentsDebts();
+	/*int GetStudentYear();
+	int GetStudentGroup();*/
 	int GetCurrentScores();
 	int GetCurrentDebts();
 	bool IfInt_Student(char *ptr);
@@ -52,9 +50,6 @@ public:
 	string GetLecturerName();
 	string GetLecturerSurname();
 	string GetLecturerSecondName();
-	string GetLecturerDegree();
-	string GetLecturerAmountOfPublications();
-	string GetLecturerExperience();
 	int GetCurrentExperience();
 	int GetCurrentPublications();
 	bool IfInt_Lecturer(char *);
@@ -62,10 +57,10 @@ public:
 
 
 //-------------------------------------------*Other*----------------------------------------------------------//
-//void IncreaseDebts();
-//void AddAmountOfPublications();
-//void ChangeName();
-//void ChangeSurname();
+void IncreaseDebts();
+void AddAmountOfPublications();
+void ChangeName();
+void ChangeSurname();
 
 //void(*functions[])(void) =
 //{
