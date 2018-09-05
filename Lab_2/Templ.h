@@ -45,7 +45,6 @@ public:
 	Node<T>*  returnHead();
 	void sort();
 private:
-//template <class TYPE>
 	void sort(Node<T>* &theHead);//формирование списка для слияния 
 	Node<T>* sortedMerge(Node<T>* a, Node<T>* b); //слияние двух остортированных списков в один отсортированный
 	void frontBackSplit(Node<T>* theHead, Node<T>* &frontRef, Node<T>* &backRef); //разбиение на подсписки
