@@ -71,11 +71,7 @@ int chooseFieldForStudent();
 int chooseFieldForLecturer();
 int chooseField_WithChecks();
 
-//void(*functions[])(void) =
-//{
-//	IncreaseDebts, AddAmountOfPublications, ChangeName, ChangeSurname
-//};
-
+int chooseOperationWithObject(int);
 
 int selectMode();
 bool checkDataType(char*);

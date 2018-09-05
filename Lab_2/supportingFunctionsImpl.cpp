@@ -151,3 +151,54 @@ int chooseField_WithChecks() {
 	}
 	return currentfield;
 }
+
+int chooseOperationWithObject(int currentMode) {
+
+	int numberOfFunction;
+	char s[256];
+	char *p = s;
+
+	if (currentMode != 4) {
+
+		//it'd be great to add an opportunity for user to choose the parameter to sort and the sign <>
+		cout << "Do you want to end work? Push 0!" << endl;
+		cout << "Do you want to get a information about special person? Push 1!" << endl;
+		cout << "Do you want to try insert sort? Push 2!" << endl;
+		cout << "Do you want to use merge sort? Push 3!" << endl;
+		cout << "Do you want to see the list? Push 4!" << endl;
+
+		cin >> s;
+		while (!checkDataType(p))
+			cin >> s;
+		numberOfFunction = atoi(s);
+		while (numberOfFunction < 0 || numberOfFunction > 5) {
+			cout << "Fill in the number from 0 to 5" << endl;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			numberOfFunction = atoi(s);
+		}
+	}
+
+	if (currentMode == 4) {
+		//it'd be great to add an opportunity for user to choose the parameter to sort and the sign <>
+		cout << "Do you want to end work? Push 0!" << endl;
+		cout << "Do you want to try insert sort? Push 1!" << endl;
+		cout << "Do you want to use merge sort? Push 2!" << endl;
+		cout << "Do you want to see the list? Push 3!" << endl;
+
+		cin >> s;
+		while (!checkDataType(p))
+			cin >> s;
+		numberOfFunction = atoi(s);
+		while (numberOfFunction < 0 || numberOfFunction > 3) {
+			cout << "Fill in the number from 0 to 3" << endl;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			numberOfFunction = atoi(s);
+		}
+	}
+
+	return numberOfFunction;
+}

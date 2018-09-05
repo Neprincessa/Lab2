@@ -320,6 +320,29 @@ void List<Lecturer>::InsertSort()
 	}
 }
 
+void List<void*>::InsertSort() {
+
+	Node<void*> *t;
+	void* x;
+	Node <void*> curLecturer;
+	t = head->Next;
+	while (t)
+	{
+		x = t->data;
+		curLecturer.data = t->data;
+		Node<void*> *b = t->Prev;
+		while (b != NULL && x /*<*/ > b->data)
+		{
+			b->Next->data = b->data;
+			b = b->Prev;
+		}
+		if (b == NULL)
+			head->data = curLecturer.data;
+		else
+			b->Next->data = curLecturer.data;
+		t = t->Next;
+	}
+}
 //-----------------------------------------//
 //merge sort
 
@@ -491,6 +514,69 @@ Node<Lecturer>* List<Lecturer>::sortedMerge(Node<Lecturer>* a, Node<Lecturer>* b
 			}
 			else {
 				Node<Lecturer>* toAdd = a;
+				a = a->Next;
+				toAdd->Prev = b->Prev;
+				b->Prev->Next = toAdd;
+				toAdd->Next = b;
+				b->Prev = toAdd;
+			}
+		}
+	}
+
+	return headOfMerged;
+}
+
+Node<void*>* List<void*>::sortedMerge(Node<void*>* a, Node<void*>* b)
+{
+	Node<void*>* headOfMerged;
+
+	// If one of the node is nullptr, return the other node
+	// No merging occurs this this case
+	if (a == nullptr) {
+		return b;
+	}
+	else if (b == nullptr) {
+		return a;
+	}
+
+	// First element in list, a, is less than the first element in b
+	if (a->data <= b->data) {
+		headOfMerged = a;
+
+		while (b != nullptr) {
+			if (a->data <= b->data) {
+				if (a->Next == nullptr) {
+					a->Next = b;
+					b->Prev = a;
+					break;
+				}
+				a = a->Next;
+			}
+			else {
+				Node<void*>* toAdd = b;
+				b = b->Next;
+				toAdd->Prev = a->Prev;
+				a->Prev->Next = toAdd;
+				toAdd->Next = a;
+				a->Prev = toAdd;
+			}
+		}
+	}
+	// First element in list, b, is less than the first element in a
+	else {
+		headOfMerged = b;
+
+		while (a != nullptr) {
+			if (b->data <= a->data) {
+				if (b->Next == nullptr) {
+					b->Next = a;
+					a->Prev = b;
+					break;
+				}
+				b = b->Next;
+			}
+			else {
+				Node<void*>* toAdd = a;
 				a = a->Next;
 				toAdd->Prev = b->Prev;
 				b->Prev->Next = toAdd;
