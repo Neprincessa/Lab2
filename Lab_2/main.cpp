@@ -82,6 +82,12 @@ int main() {
 			people.sort();
 			people.Show();
 		}
+
+		if (currentMode == 4) {
+			List<void*> func;
+			func.SetList();
+			func.Show();
+		}
 	}
 
 	system("pause");

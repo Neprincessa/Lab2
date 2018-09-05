@@ -46,6 +46,22 @@ void List<Lecturer>::SetList() {
 	}
 }
 
+
+void List<void*>::SetList() {
+
+	amount = 4;
+
+	//massive of functions
+	void(*functions[])(void) =
+	{
+		IncreaseDebts, AddAmountOfPublications, ChangeName, ChangeSurname
+	};
+
+	for (int i = 0; i < amount; i++) {
+		AddNode(functions[i]);
+	}
+
+}
 template <class T>
 void List<T>::AddNode(T x) {
 	Node<T> *temp = new Node<T>;               
@@ -120,6 +136,36 @@ void List<Lecturer>::Show() {
 		cout << i << ")" << endl;
 		temp->data.PrintLecturer();
 		temp = temp->Next;
+	}
+	cout << "\n";
+}
+
+void List<void*>::Show() {
+	//Show from thw tail
+	cout << "The list from the end:" << endl;
+	Node<void*> *temp = tail;
+	int i = 0;
+	while (temp != NULL)
+	{
+		i++;
+		cout << i << ")" << endl;
+		cout<<temp->data;
+		temp = temp->Prev;
+		cout << "\n";
+	}
+	cout << "\n";
+
+	//Show from the begining
+	cout << "The list from the begining:" << endl;
+	temp = head;
+	i = 0;
+	while (temp != NULL)
+	{
+		i++;
+		cout << i << ")" << endl;
+		cout << temp->data;
+		temp = temp->Next;
+		cout << "\n";
 	}
 	cout << "\n";
 }
@@ -497,3 +543,5 @@ void List<T>::frontBackSplit(Node<T>* theHead, Node<T>* &frontRef, Node<T>* &bac
 		slow->Next = nullptr;
 	}
 }
+
+

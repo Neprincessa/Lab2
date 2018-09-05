@@ -70,6 +70,7 @@ int chooseFunction(int);
 int chooseFieldForStudent();
 int chooseFieldForLecturer();
 int chooseField_WithChecks();
+
 //void(*functions[])(void) =
 //{
 //	IncreaseDebts, AddAmountOfPublications, ChangeName, ChangeSurname
