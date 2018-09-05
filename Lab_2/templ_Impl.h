@@ -23,6 +23,11 @@ void List<Student>::SetList() {
 	}
 }
 
+template <class T>
+Node<T> *List<T>::returnHead() {
+	return head;
+}
+
 void List<Lecturer>::SetList() {
 	typeMode = 3;
 
@@ -228,21 +233,267 @@ void List<Student>::InsertSort()
 	t = head->Next;
 	while (t)
 	{
-		x = /**(int *)*/t->data.GetCurrentScores();
+		x =t->data.GetCurrentScores();
 		curStudent.data = t->data;
 		Node<Student> *b = t->Prev;
-		while (b != NULL && x < /**(int *)*/b->data.GetCurrentScores())
+		while (b != NULL && x < b->data.GetCurrentScores())
 		{
-			/**(int *)*/b->Next->data = /**(int *)*/b->data;
+			b->Next->data = b->data;
 			b = b->Prev;
 		}
 		if (b == NULL)
 			head->data = curStudent.data;
-		///**(int *)*/head->data.GetCurrentScores() = x;
 		else
 			b->Next->data = curStudent.data;
-			///**(int *)*/b->Next->data.GetCurrentScores() = x;
 		t = t->Next;
 	}
+}
 
+//amount of bublications
+void List<Lecturer>::InsertSort()
+{
+	Node<Lecturer> *t;
+	int x;
+	Node <Lecturer> curLecturer;
+	t = head->Next;
+	while (t)
+	{
+		x =t->data.GetCurrentPublications();
+		curLecturer.data = t->data;
+		Node<Lecturer> *b = t->Prev;
+		while (b != NULL && x < b->data.GetCurrentPublications())
+		{
+			b->Next->data = b->data;
+			b = b->Prev;
+		}
+		if (b == NULL)
+			head->data = curLecturer.data;
+		else
+			b->Next->data = curLecturer.data;
+		t = t->Next;
+	}
+}
+
+//-----------------------------------------//
+//merge sort
+
+/**
+*  Perform merge sort on the this list.
+*  @param theHead Node* Reference to the head
+*/
+
+template <class T>
+void List<T>::sort(Node<T>* &theHead) {
+	Node<T>* a = nullptr;
+	Node<T>* b = nullptr;
+
+	// Base case
+	if (theHead == nullptr || theHead->Next == nullptr) {
+		return;
+	}
+
+	// Split the list in half
+	// For odd number of nodes, the extra node will be in the first half.
+	frontBackSplit(theHead, a, b);
+
+	// Recursively break the list down until the sublist contains 1 element (Sorted)
+	sort(a);
+	sort(b);
+
+	// Merge the two sorted lists
+	theHead = sortedMerge(a, b);
+}
+
+template <class T>
+void List<T>::sort(){
+
+	sort(head);
+
+	// After the merge sort, tail pointer will be pointing to incorrect node
+	// Update the tail (*** Need a better way to update tail ***)
+	Node<T>* findTail = head;
+	while (findTail != nullptr) {
+		if (findTail->Next == nullptr) {
+			tail = findTail;
+		}
+
+		findTail = findTail->Next;
+	}
+}
+
+
+
+/**
+*  Take 2 Node Pointers, each pointing at the head of sorted sublist,
+*      merge them, and return the Node pointer to the head node of the merged list.
+*  @param a Node* Pointer to the head of the first sorted list
+*  @param b Node* Pointer to the head of the second sorted list
+*  @return Node* head of the merged list (nullptr if both given nodes are empty)
+*/
+
+Node<Student>* List<Student>::sortedMerge(Node<Student>* a, Node<Student>* b)
+{
+	Node<Student>* headOfMerged;
+
+	// If one of the node is nullptr, return the other node
+	// No merging occurs this this case
+	if (a == nullptr) {
+		return b;
+	}
+	else if (b == nullptr) {
+		return a;
+	}
+
+	// First element in list, a, is less than the first element in b
+	if (a->data.GetCurrentDebts() <= b->data.GetCurrentDebts()) {
+		headOfMerged = a;
+
+		while (b != nullptr) {
+			if (a->data.GetCurrentDebts() <= b->data.GetCurrentDebts()) {
+				if (a->Next == nullptr) {
+					a->Next = b;
+					b->Prev = a;
+					break;
+				}
+				a = a->Next;
+			}
+			else {
+				Node<Student>* toAdd = b;
+				b = b->Next;
+				toAdd->Prev = a->Prev;
+				a->Prev->Next = toAdd;
+				toAdd->Next = a;
+				a->Prev = toAdd;
+			}
+		}
+	}
+	// First element in list, b, is less than the first element in a
+	else {
+		headOfMerged = b;
+
+		while (a != nullptr) {
+			if (b->data.GetCurrentDebts() <= a->data.GetCurrentDebts()) {
+				if (b->Next == nullptr) {
+					b->Next = a;
+					a->Prev = b;
+					break;
+				}
+				b = b->Next;
+			}
+			else {
+				Node<Student>* toAdd = a;
+				a = a->Next;
+				toAdd->Prev = b->Prev;
+				b->Prev->Next = toAdd;
+				toAdd->Next = b;
+				b->Prev = toAdd;
+			}
+		}
+	}
+
+	return headOfMerged;
+}
+
+Node<Lecturer>* List<Lecturer>::sortedMerge(Node<Lecturer>* a, Node<Lecturer>* b)
+{
+	Node<Lecturer>* headOfMerged;
+
+	// If one of the node is nullptr, return the other node
+	// No merging occurs this this case
+	if (a == nullptr) {
+		return b;
+	}
+	else if (b == nullptr) {
+		return a;
+	}
+
+	// First element in list, a, is less than the first element in b
+	if (a->data.GetCurrentExperience() <= b->data.GetCurrentExperience()) {
+		headOfMerged = a;
+
+		while (b != nullptr) {
+			if (a->data.GetCurrentExperience() <= b->data.GetCurrentExperience()) {
+				if (a->Next == nullptr) {
+					a->Next = b;
+					b->Prev = a;
+					break;
+				}
+				a = a->Next;
+			}
+			else {
+				Node<Lecturer>* toAdd = b;
+				b = b->Next;
+				toAdd->Prev = a->Prev;
+				a->Prev->Next = toAdd;
+				toAdd->Next = a;
+				a->Prev = toAdd;
+			}
+		}
+	}
+	// First element in list, b, is less than the first element in a
+	else {
+		headOfMerged = b;
+
+		while (a != nullptr) {
+			if (b->data.GetCurrentExperience() <= a->data.GetCurrentExperience()) {
+				if (b->Next == nullptr) {
+					b->Next = a;
+					a->Prev = b;
+					break;
+				}
+				b = b->Next;
+			}
+			else {
+				Node<Lecturer>* toAdd = a;
+				a = a->Next;
+				toAdd->Prev = b->Prev;
+				b->Prev->Next = toAdd;
+				toAdd->Next = b;
+				b->Prev = toAdd;
+			}
+		}
+	}
+
+	return headOfMerged;
+}
+/**
+*  Utility function for merge sort
+*  @param frontRef Node* reference pointer that will point to the head of first sorted half
+*  @param backRef Node* reference pointer that will point to the head of second sorted half
+*/
+template <class T>
+void List<T>::frontBackSplit(Node<T>* theHead, Node<T>* &frontRef, Node<T>* &backRef)
+{
+	Node<T>* fast;
+	Node<T>* slow;
+
+	// If the list is empty, both front and back points to null
+	// If there is only one element, front points to it and back points
+	//  to null.
+	if (theHead == nullptr || theHead->Next == nullptr) {
+		frontRef = theHead;
+		backRef = nullptr;
+	}
+	else {
+		slow = theHead;
+		fast = theHead->Next;
+
+		// Fast advances 2 nodes while slow advances 1 node
+		while (fast != nullptr) {
+			fast = fast->Next;
+
+			if (fast != nullptr) {
+				slow = slow->Next;
+				fast = fast->Next;
+			}
+		}
+
+		// slow should be pointing right before midpoint. Split at this point
+		frontRef = theHead;
+		backRef = slow->Next;
+
+		// Update the prev and next pointers
+		backRef->Prev = nullptr;
+		slow->Next = nullptr;
+	}
 }

@@ -40,8 +40,14 @@ int main() {
 
 			people.SelectCurrentOrder(number);
 
-			//insert sort
+			cout << "Insert sort" << endl;
 			people.InsertSort();
+			cout << "\n";
+			people.Show();
+
+			//merge sort
+			cout << "Merge sort" << endl;
+			people.sort();
 			people.Show();
 		}
 
@@ -68,6 +74,12 @@ int main() {
 
 			people.SelectCurrentOrder(number);
 
+			cout << "Insert sort" << endl;
+			people.InsertSort();
+			cout << "\n";
+			
+			cout << "Merge sort" << endl;
+			people.sort();
 			people.Show();
 		}
 	}
